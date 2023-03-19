@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/03/18 18:55:23 by iamongeo          #+#    #+#              #
+#    Updated: 2023/03/18 18:55:44 by iamongeo         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS	=	main.cpp
 
 CLS	=	ClapTrap.cpp ScavTrap.cpp
@@ -19,9 +31,9 @@ $(NAME):	$(OBJS)
 all:	$(NAME)
 
 clean:
-	rm $(OBJS)
+	rm -f $(OBJS)
 
 fclean:	clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re:	fclean all

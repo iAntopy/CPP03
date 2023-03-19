@@ -6,19 +6,19 @@
 /*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:13:40 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/22 00:13:40 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/18 19:41:01 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __CLAPTRAP_HPP__
 # define __CLAPTRAP_HPP__
 
+# include <iostream>
 # include <fstream>
 # include <string>
 
 class ClapTrap
 {
-//	private:
 	protected:
 		std::string		_name;
 		unsigned int	_hp;
@@ -40,7 +40,6 @@ class ClapTrap
 		unsigned int		getHP(void) const;
 		unsigned int		getEP(void) const;
 		unsigned int		getDMG(void) const;
-		void				setDMG(unsigned int amound);
 		bool				isDead(void) const;
 };
 

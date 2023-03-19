@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:51:08 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/22 06:56:42 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/18 19:46:30 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,8 @@ FragTrap::FragTrap(void) {
 	_ep = 100;
 	_dmg = 30;
 }
-FragTrap::FragTrap(std::string const& name) {
+FragTrap::FragTrap(std::string const& name) : ClapTrap(name) {
 	std::cout << "FragTrap constructor called with name : " << name << std::endl;
-	_name = name;
 	_hp = 100;
 	_ep = 100;
 	_dmg = 30;

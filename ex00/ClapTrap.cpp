@@ -6,21 +6,19 @@
 /*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:22:46 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/22 00:22:46 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/18 20:12:49 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
 #include "ClapTrap.hpp"
 
 std::ostream&   operator<<(std::ostream& out, ClapTrap const& c)
 {
 	out << "ClapTrap{";
 	out << "name : " << c.getName();
-	out << "hp : " << c.getHP();
-	out << "ep : " << c.getEP();
-	out << "dmg : " << c.getDMG();
+	out << ", hp : " << c.getHP();
+	out << ", ep : " << c.getEP();
+	out << ", dmg : " << c.getDMG();
 	out << "} " << std::endl;
 	return (out);
 }
@@ -49,7 +47,6 @@ std::string const&	ClapTrap::getName(void) const {return (_name);}
 unsigned int		ClapTrap::getHP(void) const {return (_hp);}
 unsigned int		ClapTrap::getEP(void) const {return (_ep);}
 unsigned int		ClapTrap::getDMG(void) const {return (_dmg);}
-void				ClapTrap::setDMG(unsigned int amount) {_dmg = amount;}
 
 bool	ClapTrap::isDead(void) const {return (_hp == 0);}
 
@@ -62,7 +59,7 @@ void    ClapTrap::attack(std::string const& target)
 	}
 	else if (_ep == 0)
 	{
-		std::cout << _name << " is too tired to fight. They cough their lungs out while bent over and ask their opponents for a timeout. What a shame." << std::endl;
+		std::cout << _name << " is too tired to fight. They squeek their old hinges and ask their opponents for a timeout. What a shame." << std::endl;
 		return ;
 	}
 	_ep--;
@@ -80,12 +77,12 @@ void    ClapTrap::takeDamage(unsigned int amount)
 	if (amount >= _hp)
 	{
 		_hp = 0;
-		std::cout << _name << " dies and brings shame to his family." << std::endl;
+		std::cout << _name << " received " << amount << " points of damage, dies and brings shame to its family." << std::endl;
 	}
 	else
 	{
 		_hp -= amount;
-		std::cout << _name << " receives " << amount << " points of damage and laughs at his opponent's weakness." << std::endl;
+		std::cout << _name << " receives " << amount << " points of damage ( " << this->_hp << " HP left ) and laughs at his opponent's weakness." << std::endl;
 	}
 }
 
@@ -93,15 +90,16 @@ void    ClapTrap::beRepaired(unsigned int amount)
 {
 	if (this->isDead())
 	{
-		std::cout << "Moggots have already consumed " << _name << "'s body. I'm afraid repairs are not an option." << std::endl;
+		std::cout << "Maggots have already consumed " << _name << "'s frame. I'm afraid repairs are not an option." << std::endl;
 		return ;
 	}
 	else if (_ep == 0)
 	{
-		std::cout << _name << " is too tired to help himself. MEDIC !" << std::endl;
+		std::cout << _name << " is too tired to help himself. REPAIRMAN !" << std::endl;
 		return ;
 	}
 	_hp += amount;
+	_ep--;
 	std::cout << _name << " repairs itself and gains "<< amount
 	<< " HP. Current HP : " << _hp << std::endl;
 }

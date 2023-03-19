@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:50:30 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/22 07:00:20 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/18 19:39:54 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define __SCAVTRAP_HPP__
 
 # include <iostream>
+# include <fstream>
 # include <string>
 # include "ClapTrap.hpp"
 
@@ -32,6 +33,6 @@ class ScavTrap : public ClapTrap
 		void	guardGate(void) const;
 };
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
+std::ostream &			operator<<(std::ostream& o, ScavTrap const & i);
 
 #endif

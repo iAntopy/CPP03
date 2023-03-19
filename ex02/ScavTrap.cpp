@@ -6,24 +6,23 @@
 /*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:51:08 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/22 05:37:52 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/18 19:29:45 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void) {
+ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "ScavTrap default costructor called." << std::endl;
-	_hp = 100;
-	_ep = 50;
-	_dmg = 20;
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_dmg = 20;
 }
-ScavTrap::ScavTrap(std::string const& name) {
+ScavTrap::ScavTrap(std::string const& name) : ClapTrap(name) {
 	std::cout << "ScavTrap constructor called with name : " << name << std::endl;
-	_name = name;
-	_hp = 100;
-	_ep = 50;
-	_dmg = 20;
+	this->_hp = 100;
+	this->_ep = 50;
+	this->_dmg = 20;
 }
 ScavTrap&	ScavTrap::operator=(ScavTrap const& c){
 	if (this == &c)
@@ -32,7 +31,7 @@ ScavTrap&	ScavTrap::operator=(ScavTrap const& c){
 	_hp = c.getHP();
 	_ep = c.getEP();
 	_dmg = c.getDMG();
-	std::cout << "Copy assignment DONE!" << std::endl;
+	std::cout << "ScavTrap copy assignment DONE!" << std::endl;
 	return (*this);
 }
 ScavTrap::~ScavTrap(void) {
@@ -65,9 +64,10 @@ void	ScavTrap::guardGate(void) const
 	}
 	else if (_ep == 0)
 	{
-		std::cout << "Exhausted, " << _name << " walks towards the gate and get knock down by a gust of wind. Having noticed the event, the local mailman laughs at the misfortune, then goes alongwith his day. " << _name << " was not present at the gate that day." << std::endl;
+		std::cout << "Exhausted, " << _name << " walks towards the gate and gets knock down by a gust of wind. Having noticed the event, the local mailman laughs at the misfortune, then goes along with his day. " << _name << " was not present at the gate that day." << std::endl;
 		return ;
 	}
 	std::cout << "Scavtrap " << _name << " enters Gate Keeper mode. ";
-	std::cout << "What the gate keeps is a mystery to " << _name << " but they feel strongly that it's worth guarding." << std::endl;
+	std::cout << "What the gate keeps is a mystery to " << _name << ", but they feel honored to have been chosen \
+for this task." << std::endl;
 }
