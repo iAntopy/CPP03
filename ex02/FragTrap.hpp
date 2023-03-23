@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:50:30 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 20:56:42 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 17:49:15 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 
 class FragTrap : public ClapTrap
 {
+	private:
+		static const int	INIT_HP;
+		static const int	INIT_EP;
+		static const int	INIT_DMG;
+		
 	public:
 
 		FragTrap(void);

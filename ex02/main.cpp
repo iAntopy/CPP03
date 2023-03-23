@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 01:34:21 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 21:01:14 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:34:27 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ int main(void)
 
 	std::cout << std::endl << "Params constructed scav2 tests : " << std::endl;
 	for (int i=0; i < 5; i++)
-		scav2.takeDamage(2);
-	scav2.attack("Dingleberry");
+		scav2.takeDamage(10);
+	scav2.beRepaired(50);
 	scav2.beRepaired(1);
 	scav2.guardGate();
+	scav2.guardGate();
+	scav2.attack("Dingleberry");
 
 	std::cout << std::endl << "Copy constructed scav3 tests : " << std::endl;
 	scav3.beRepaired(1);
@@ -61,10 +63,11 @@ int main(void)
 
 	std::cout << std::endl << "Params constructed frag2 tests : " << std::endl;
 	for (int i=0; i < 5; i++)
-		frag2.takeDamage(2);
-	frag2.attack("Dingleberry");
+		frag2.takeDamage(10);
+	frag2.beRepaired(50);
 	frag2.beRepaired(1);
 	frag2.highFivesGuys();
+	frag2.attack("Dingleberry");
 
 	std::cout << std::endl << "Copy constructed frag3 tests : " << std::endl;
 	frag3.beRepaired(1);

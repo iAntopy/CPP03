@@ -6,11 +6,15 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:51:08 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 20:54:39 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:04:12 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+const int	ScavTrap::INIT_HP = 100;
+const int	ScavTrap::INIT_EP = 50;
+const int	ScavTrap::INIT_DMG = 20;
 
 std::ostream&   operator<<(std::ostream& out, ScavTrap const& c)
 {
@@ -25,16 +29,18 @@ std::ostream&   operator<<(std::ostream& out, ScavTrap const& c)
 }
 ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "ScavTrap default costructor called." << std::endl;
-	_hp = 100;
-	_ep = 50;
-	_dmg = 20;
+	_hp = ScavTrap::INIT_HP;
+	_max_hp = _hp;
+	_ep = ScavTrap::INIT_EP;
+	_dmg = ScavTrap::INIT_DMG;
 	_in_gatekeeper_mode = 0;
 }
 ScavTrap::ScavTrap(std::string const& name) : ClapTrap(name) {
 	std::cout << "ScavTrap constructor called with name : " << name << std::endl;
-	_hp = 100;
-	_ep = 50;
-	_dmg = 20;
+	_hp = ScavTrap::INIT_HP;
+	_max_hp = _hp;
+	_ep = ScavTrap::INIT_EP;
+	_dmg = ScavTrap::INIT_DMG;
 	_in_gatekeeper_mode = 0;
 }
 ScavTrap::ScavTrap(ScavTrap const& other) : ClapTrap(other.getName()) {

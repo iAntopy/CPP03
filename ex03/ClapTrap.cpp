@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:22:46 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 22:57:51 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:43:15 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,16 @@ std::ostream&   operator<<(std::ostream& out, ClapTrap const& c)
 	return (out);
 }
 
-ClapTrap::ClapTrap(void) : _name("DEFAULT"), _hp(10), _ep(10), _dmg(0) {
+ClapTrap::ClapTrap(void) : _name("DEFAULT"), _hp(ClapTrap::INIT_HP), _max_hp(ClapTrap::INIT_HP),
+	_ep(ClapTrap::INIT_EP), _dmg(ClapTrap::INIT_DMG) {
 	std::cout << "ClapTrap default costructor called." << std::endl;
 }
-ClapTrap::ClapTrap(std::string const& name) : _name(name), _hp(10), _ep(10), _dmg(0) {
+ClapTrap::ClapTrap(std::string const& name) : _name(name), _hp(ClapTrap::INIT_HP),
+	_max_hp(ClapTrap::INIT_HP), _ep(ClapTrap::INIT_EP), _dmg(ClapTrap::INIT_DMG) {
 	std::cout << "ClapTrap constructor called with name : " << name << std::endl;
 }
 ClapTrap::ClapTrap(ClapTrap const& other) : _name(other.getName()),
-	_hp(other.getHP()), _ep(other.getEP()), _dmg(other.getDMG()) {
+	_hp(other.getHP()), _max_hp(ClapTrap::INIT_HP), _ep(other.getEP()), _dmg(other.getDMG()) {
 	std::cout << "ClapTrap copy constructor called with other : " << other << std::endl;
 }
 ClapTrap::~ClapTrap(void) {
@@ -106,8 +108,13 @@ void    ClapTrap::beRepaired(unsigned int amount)
 		std::cout << _name << " is too tired to help himself. REPAIRMAN !" << std::endl;
 		return ;
 	}
-	_hp += amount;
-	_ep--;
-	std::cout << _name << " repairs itself and gains "<< amount
-		<< " HP. Current HP : " << _hp << std::endl;
+	if (_hp < _max_hp)
+	{
+		_hp += amount;
+		_ep--;
+		std::cout << _name << " repairs itself and gains " << amount
+			<< " HP. Current HP : " << _hp << std::endl;
+	}
+	else
+		std::cout << _name << " tries to repair itself, but is already at FULL health." << std::endl;
 }

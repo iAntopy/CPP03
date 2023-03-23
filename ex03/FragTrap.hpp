@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:50:30 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 22:25:40 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:51:32 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class FragTrap : virtual public ClapTrap
 		static const int	INIT_DMG;
 		
 	public:
-
 		FragTrap(void);
 		FragTrap(std::string const& name);
 		FragTrap(FragTrap const& src);

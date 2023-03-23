@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:51:08 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 22:33:40 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:04:12 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ std::ostream&   operator<<(std::ostream& out, ScavTrap const& c)
 	out << "} " << std::endl;
 	return (out);
 }
-
 ScavTrap::ScavTrap(void) : ClapTrap() {
 	std::cout << "ScavTrap default costructor called." << std::endl;
 	_hp = ScavTrap::INIT_HP;
+	_max_hp = _hp;
 	_ep = ScavTrap::INIT_EP;
 	_dmg = ScavTrap::INIT_DMG;
 	_in_gatekeeper_mode = 0;
@@ -38,6 +38,7 @@ ScavTrap::ScavTrap(void) : ClapTrap() {
 ScavTrap::ScavTrap(std::string const& name) : ClapTrap(name) {
 	std::cout << "ScavTrap constructor called with name : " << name << std::endl;
 	_hp = ScavTrap::INIT_HP;
+	_max_hp = _hp;
 	_ep = ScavTrap::INIT_EP;
 	_dmg = ScavTrap::INIT_DMG;
 	_in_gatekeeper_mode = 0;

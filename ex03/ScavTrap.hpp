@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:50:30 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 22:25:15 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:51:39 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-	private:
-		bool	_in_gatekeeper_mode;
-
 	protected:
+		bool	_in_gatekeeper_mode;
 		static const int	INIT_HP;
 		static const int	INIT_EP;
 		static const int	INIT_DMG;

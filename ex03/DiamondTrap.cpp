@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:08:10 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 23:12:52 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:49:28 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ DiamondTrap::DiamondTrap(void) {
     _name = "DEFAULT";
 	this->ClapTrap::_name += "_clap_trap";
 	_hp = FragTrap::INIT_HP;
+	_max_hp = _hp;
 	_ep = ScavTrap::INIT_EP;
 	_dmg = FragTrap::INIT_DMG;
 }
@@ -35,6 +36,7 @@ DiamondTrap::DiamondTrap(std::string const& name) : ClapTrap(name + "_clap_trap"
 	std::cout << "DiamondTrap constructor called with name : " << name << std::endl;
     _name = name;
 	_hp = FragTrap::INIT_HP;
+	_max_hp = _hp;
 	_ep = ScavTrap::INIT_EP;
 	_dmg = FragTrap::INIT_DMG;
 }

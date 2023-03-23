@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 01:34:21 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 23:17:59 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:10:02 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ void    run_claptrap_tests(void)
 
 	std::cout << std::endl << "Georgie's copy drains its energy by repairing itself : " << std::endl;
 	for (int i=0; i < 12; i++)
+	{
 		clap3.beRepaired(1);
+		clap3.takeDamage(1);
+	}
 }
 
 void    run_scavtrap_tests(void)
@@ -53,7 +56,7 @@ void    run_scavtrap_tests(void)
 	scav3 = scav2;
 
 	std::cout << "Default constructed scav1 tests : " << std::endl;
-	for (int i=0; i < 5; i++)
+	for (int i=0; i < 52; i++)
 		scav1.attack("Simbadboy");
 	scav1.guardGate();
 	scav1.beRepaired(1);
@@ -61,11 +64,12 @@ void    run_scavtrap_tests(void)
 
 	std::cout << std::endl << "Params constructed scav2 tests : " << std::endl;
 	for (int i=0; i < 5; i++)
-		scav2.takeDamage(2);
-	scav2.attack("Dingleberry");
+		scav2.takeDamage(10);
+	scav2.beRepaired(50);
 	scav2.beRepaired(1);
 	scav2.guardGate();
 	scav2.guardGate();
+	scav2.attack("Dingleberry");
 
 	std::cout << std::endl << "Copy constructed scav3 tests : " << std::endl;
 	scav3.beRepaired(1);
@@ -94,10 +98,11 @@ void    run_fragtrap_tests(void)
 
 	std::cout << std::endl << "Params constructed frag2 tests : " << std::endl;
 	for (int i=0; i < 5; i++)
-		frag2.takeDamage(2);
-	frag2.attack("Dingleberry");
+		frag2.takeDamage(10);
+	frag2.beRepaired(50);
 	frag2.beRepaired(1);
 	frag2.highFivesGuys();
+	frag2.attack("Dingleberry");
 
 	std::cout << std::endl << "Copy constructed frag3 tests : " << std::endl;
 	frag3.beRepaired(1);
@@ -152,35 +157,6 @@ int main(void)
 	run_scavtrap_tests();
 	run_fragtrap_tests();
 	run_diamondtrap_tests();
-/*
-	for (int i=0; i < 5; i++)
-		d1.attack("Simbadboy");
 
-	d2.attack("Dingleberry");
-	d1.beRepaired(1);
-	d2.beRepaired(1);
-	d3.beRepaired(1);
-
-	clap1.guardGate();
-	clap2.guardGate();
-	clap3.takeDamage(999);
-	clap3.guardGate();
-
-
-
-	DiamondTrap    frag1;
-	DiamondTrap    frag2("Bango");
-	DiamondTrap    frag3;
-	frag3 = frag2;
-
-	frag1.attack("Jimothy");
-	frag2.takeDamage(999);
-	for (int i=0; i < 102; i++)
-		frag3.attack("Mambossa");
-	
-	frag1.highFivesGuys();
-	frag2.highFivesGuys();
-	frag3.highFivesGuys();
-*/
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:51:08 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 22:34:07 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:39:42 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,21 @@ std::ostream&   operator<<(std::ostream& out, FragTrap const& c)
 FragTrap::FragTrap(void) : ClapTrap() {
 	std::cout << "FragTrap default costructor called." << std::endl;
 	_hp = FragTrap::INIT_HP;
+	_max_hp = _hp;
 	_ep = FragTrap::INIT_EP;
 	_dmg = FragTrap::INIT_DMG;
 }
 FragTrap::FragTrap(std::string const& name) : ClapTrap(name) {
 	std::cout << "FragTrap constructor called with name : " << name << std::endl;
 	_hp = FragTrap::INIT_HP;
+	_max_hp = _hp;
 	_ep = FragTrap::INIT_EP;
 	_dmg = FragTrap::INIT_DMG;
 }
 FragTrap::FragTrap(FragTrap const& other) : ClapTrap(other.getName()) {
 	std::cout << "FragTrap copy constructor called with : " << other << std::endl;
 	_hp = other.getHP();
+	_max_hp = _hp;
 	_ep = other.getEP();
 	_dmg = other.getDMG();
 }
@@ -71,5 +74,6 @@ void	FragTrap::highFivesGuys(void)
 		std::cout << _name << ", hanging out with friends, asks for a round of high fives. Their enthusiastic friends raise their arms ready for the celebration. Tragically, while trying to raise their own arm, " << _name << " remembers they are too tired to raise their arm. Too ashamed to admit they cannot possibly fulfill this social contract they brought about themselves, " << _name << " settled on creating a little subterfuge. \"Hey look, isn't that Billy Mays, the FlexTape(tm) guy, overthere\" they exclamed while looking at a distant crowd of tourists. The group of friends now looking for their idol, " << _name << " takes whatever energy they have left to hop on the back of a passing juggling monocyclist and escape this unfortunate situation unnoticed. HOORAY " << _name << " WINS !" << std::endl;
 		return ;
 	}
-	std::cout << _name << " raises their arm and calls for a high five while at a fellow FragTrap's funeral. The deceased's family is not amused." << std::endl;
+//	std::cout << _name << " raises their arm and calls for a high five while at a fellow FragTrap's funeral. The deceased's family is not amused." << std::endl;
+	std::cout << _name << " raises their arm to join a friend in a joyious celebratory hand clap." << std::endl;
 }

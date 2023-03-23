@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:13:40 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/22 22:29:30 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 18:42:28 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@
 
 class ClapTrap
 {
-	protected:
+	private:
 		static const int	INIT_HP;
 		static const int	INIT_EP;
 		static const int	INIT_DMG;
-
+		
+	protected:
+		int				_max_hp;
 		std::string 	_name;
 		unsigned int	_hp;
 		unsigned int	_ep;
@@ -33,10 +35,10 @@ class ClapTrap
 		ClapTrap(void);
 		ClapTrap(std::string const& name);
 		ClapTrap(ClapTrap const& other);
-		~ClapTrap(void);
+		virtual ~ClapTrap(void);
 		ClapTrap&   operator=(ClapTrap const& other);
 
-		void    attack(std::string const& target);
+		virtual void    attack(std::string const& target);
 		void    takeDamage(unsigned int amount);
 		void    beRepaired(unsigned int amount);
 		
