@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:22:46 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/23 18:43:15 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:48:54 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,12 @@ void    ClapTrap::attack(std::string const& target)
 {
 	if (this->isDead())
 	{
-		std::cout << _name << " has a hard time clapping his enemies while dead..." << std::endl;
+		std::cout << "ClapTrap " << _name << " has a hard time clapping his enemies while dead..." << std::endl;
 		return ;
 	}
 	else if (_ep <= 0)
 	{
-		std::cout << _name << " is too tired to fight. They squeek their old hinges and ask their opponents for a timeout. What a shame." << std::endl;
+		std::cout << "ClapTrap " << _name << " is too tired to fight. They squeek their old hinges and ask their opponents for a timeout. What a shame." << std::endl;
 		return ;
 	}
 	_ep--;

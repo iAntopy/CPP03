@@ -6,7 +6,7 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:51:08 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/23 18:04:12 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/23 19:42:37 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,12 @@ void	ScavTrap::attack(std::string const& target)
 {
 	if (this->isDead())
 	{
-		std::cout << _name << " has transcended the need for physical violence. Although, haunting people has become a hobby." << std::endl;
+		std::cout << "ScavTrap " << _name << " has transcended the need for physical violence. Although, haunting people has become a hobby." << std::endl;
 		return ;
 	}
 	else if (_ep == 0)
 	{
-		std::cout << _name << "'s spirit is down, but they shall never give up." << std::endl;
+		std::cout << "ScavTrap " << _name << "'s spirit is down, but they shall never give up." << std::endl;
 		return ;
 	}
 	_ep--;
@@ -88,12 +88,12 @@ void	ScavTrap::guardGate(void)
 {
 	if (this->isDead())
 	{
-		std::cout << "While dead, " << _name << "'s limp, lifeless body lays in front of the gate. A band of rambunctious children come pick at the body with sticks and form lifelong memories." << std::endl;
+		std::cout << "While dead, ScavTrap " << _name << "'s limp, lifeless body lays in front of the gate. A band of rambunctious children come pick at the body with sticks and form lifelong memories." << std::endl;
 		return ;
 	}
 	else if (_ep == 0)
 	{
-		std::cout << "Exhausted, " << _name << " walks towards the gate and gets knock down by a gust of wind. Having noticed the event, the local mailman laughs at the misfortune, then goes along with his day. " << _name << " was not present at the gate that day." << std::endl;
+		std::cout << "Exhausted, ScavTrap " << _name << " walks towards the gate and gets knock down by a gust of wind. Having noticed the event, the local mailman laughs at the misfortune, then goes along with his day. " << _name << " was not present at the gate that day." << std::endl;
 		return ;
 	}
 	else if (_in_gatekeeper_mode)
