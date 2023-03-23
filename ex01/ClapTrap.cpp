@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:22:46 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/18 20:12:49 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:21:55 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ std::ostream&   operator<<(std::ostream& out, ClapTrap const& c)
 	out << ", hp : " << c.getHP();
 	out << ", ep : " << c.getEP();
 	out << ", dmg : " << c.getDMG();
-	out << "} " << std::endl;
+	out << "} ";
 	return (out);
 }
 
@@ -28,6 +28,10 @@ ClapTrap::ClapTrap(void) : _name("DEFAULT"), _hp(10), _ep(10), _dmg(0) {
 }
 ClapTrap::ClapTrap(std::string const& name) : _name(name), _hp(10), _ep(10), _dmg(0) {
 	std::cout << "ClapTrap constructor called with name : " << name << std::endl;
+}
+ClapTrap::ClapTrap(ClapTrap const& other) : _name(other.getName()),
+	_hp(other.getHP()), _ep(other.getEP()), _dmg(other.getDMG()) {
+	std::cout << "ClapTrap copy constructor called with other : " << other << std::endl;
 }
 ClapTrap::~ClapTrap(void) {
 	std::cout << "ClapTrap destructor called " << std::endl;
@@ -57,7 +61,7 @@ void    ClapTrap::attack(std::string const& target)
 		std::cout << _name << " has a hard time clapping his enemies while dead..." << std::endl;
 		return ;
 	}
-	else if (_ep == 0)
+	else if (_ep <= 0)
 	{
 		std::cout << _name << " is too tired to fight. They squeek their old hinges and ask their opponents for a timeout. What a shame." << std::endl;
 		return ;
@@ -71,7 +75,7 @@ void    ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->isDead())
 	{
-		std::cout << "No point in beating a dead horse. " << _name << " is already dead." << std::endl;
+		std::cout << "No point in beating a dead trap. " << _name << " is already dead." << std::endl;
 		return ;
 	}
 	if (amount >= _hp)
@@ -93,7 +97,7 @@ void    ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "Maggots have already consumed " << _name << "'s frame. I'm afraid repairs are not an option." << std::endl;
 		return ;
 	}
-	else if (_ep == 0)
+	else if (_ep <= 0)
 	{
 		std::cout << _name << " is too tired to help himself. REPAIRMAN !" << std::endl;
 		return ;
@@ -101,5 +105,5 @@ void    ClapTrap::beRepaired(unsigned int amount)
 	_hp += amount;
 	_ep--;
 	std::cout << _name << " repairs itself and gains "<< amount
-	<< " HP. Current HP : " << _hp << std::endl;
+		<< " HP. Current HP : " << _hp << std::endl;
 }

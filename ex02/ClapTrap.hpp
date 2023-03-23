@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:13:40 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/18 19:41:01 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:40:21 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@
 class ClapTrap
 {
 	protected:
-		std::string		_name;
+		std::string 	_name;
 		unsigned int	_hp;
-		unsigned int 	_ep;
-		unsigned int 	_dmg;
+		unsigned int	_ep;
+		unsigned int	_dmg;
 
 	public:
 		ClapTrap(void);
 		ClapTrap(std::string const& name);
 		ClapTrap(ClapTrap const& other);
-		virtual ~ClapTrap(void);
+		~ClapTrap(void);
 		ClapTrap&   operator=(ClapTrap const& other);
 
-		virtual void		attack(std::string const& target);
-		void				takeDamage(unsigned int amount);
-		void				beRepaired(unsigned int amount);
+		void    attack(std::string const& target);
+		void    takeDamage(unsigned int amount);
+		void    beRepaired(unsigned int amount);
 		
 		std::string const&	getName(void) const;
 		unsigned int		getHP(void) const;

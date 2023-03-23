@@ -6,43 +6,44 @@
 /*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 00:13:40 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/02/24 22:21:17 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/22 22:29:30 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef __CLAPTRAP_HPP__
 # define __CLAPTRAP_HPP__
 
+# include <iostream>
 # include <fstream>
 # include <string>
 
 class ClapTrap
 {
-//	private:
 	protected:
-		std::string		_name;
+		static const int	INIT_HP;
+		static const int	INIT_EP;
+		static const int	INIT_DMG;
 
-	private:
+		std::string 	_name;
 		unsigned int	_hp;
-		unsigned int 	_ep;
-		unsigned int 	_dmg;
+		unsigned int	_ep;
+		unsigned int	_dmg;
 
 	public:
 		ClapTrap(void);
 		ClapTrap(std::string const& name);
 		ClapTrap(ClapTrap const& other);
-		virtual ~ClapTrap(void);
-		virtual ClapTrap&   operator=(ClapTrap const& other);
+		~ClapTrap(void);
+		ClapTrap&   operator=(ClapTrap const& other);
 
-		virtual void		attack(std::string const& target);
-		void				takeDamage(unsigned int amount);
-		void				beRepaired(unsigned int amount);
+		void    attack(std::string const& target);
+		void    takeDamage(unsigned int amount);
+		void    beRepaired(unsigned int amount);
 		
 		std::string const&	getName(void) const;
 		unsigned int		getHP(void) const;
 		unsigned int		getEP(void) const;
 		unsigned int		getDMG(void) const;
-		void				setDMG(unsigned int amound);
 		bool				isDead(void) const;
 };
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 02:50:30 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/18 19:39:54 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:33:07 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 
 class ScavTrap : public ClapTrap
 {
+	private:
+		bool	_in_gatekeeper_mode;
 	public:
 
 		ScavTrap(void);
@@ -29,8 +31,9 @@ class ScavTrap : public ClapTrap
 
 		ScavTrap&	operator=(ScavTrap const& src);
 
-		void    attack(std::string const& target) override;
-		void	guardGate(void) const;
+		void    attack(std::string const& target);
+		void	guardGate(void);
+		bool	getGuardStatus(void) const;
 };
 
 std::ostream &			operator<<(std::ostream& o, ScavTrap const & i);

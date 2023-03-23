@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iamongeo <iamongeo@student.42quebec.com    +#+  +:+       +#+        */
+/*   By: iamongeo <iamongeo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 01:34:21 by iamongeo          #+#    #+#             */
-/*   Updated: 2023/03/18 20:02:27 by iamongeo         ###   ########.fr       */
+/*   Updated: 2023/03/22 21:01:14 by iamongeo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 int main(void)
 {
+	std::cout << "STARTING WITH SCAVTRAP TESTS : " << std::endl;
 	ScavTrap	scav1;
 	ScavTrap	scav2("Georgie");
 	ScavTrap	scav3;
+	ScavTrap	scavDummy(scav2);
 
 	scav3 = scav2;
 
@@ -43,7 +45,8 @@ int main(void)
 	scav3.beRepaired(1);
 
 
-
+	std::cout << std::endl << std::endl << "FRAGTRAP TESTS : " << std::endl;
+	
 	FragTrap	frag1;
 	FragTrap	frag2("Bango");
 	FragTrap	frag3;
